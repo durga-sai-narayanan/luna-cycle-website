@@ -1,0 +1,132 @@
+export const evidenceStatuses = {
+  green: { key: "green", label: "Well established", short: "Established", description: "Broadly supported by current scientific evidence.", color: "emerald" },
+  blue: { key: "blue", label: "Supported by research", short: "Supported", description: "Supported by current research, with some ongoing investigation.", color: "sky" },
+  yellow: { key: "yellow", label: "Evidence is developing", short: "Developing", description: "Active research area; findings are still emerging.", color: "amber" },
+  gray: { key: "gray", label: "Insufficient information", short: "Unknown", description: "Not enough data is available, or it has not been disclosed.", color: "zinc" },
+};
+
+export const productCategories = [
+  { id: "pads", name: "Pads", description: "External absorbent products worn in underwear." },
+  { id: "tampons", name: "Tampons", description: "Internal absorbent products inserted into the vagina." },
+  { id: "menstrual-cups", name: "Menstrual Cups", description: "Reusable silicone or rubber cups that collect menstrual fluid." },
+  { id: "period-underwear", name: "Period Underwear", description: "Absorbent, washable underwear designed to replace or back up other products." },
+  { id: "other", name: "Other Products", description: "Sponges, discs, and emerging product types." },
+];
+
+export const products = [
+  {
+    id: "pads-standard",
+    name: "Standard Disposable Pad",
+    category: "pads",
+    summary: "A widely used disposable pad with a plastic-backed absorbent core.",
+    fields: {
+      materials: { value: "Cotton/rayon top sheet, superabsorbent polymer core, polyethylene backing", evidence: "green" },
+      fragrance: { value: "Often fragranced; varies by product", evidence: "yellow" },
+      absorbent: { value: "Superabsorbent polymers (polyacrylate)", evidence: "green" },
+      plastic: { value: "Significant plastic content (backing, packaging, applicators)", evidence: "green" },
+      pfas: { value: "Some studies have detected fluorinated compounds in certain products; not all products are tested", evidence: "yellow" },
+      microplastics: { value: "Shedding of plastic fibers is plausible; research is ongoing", evidence: "yellow" },
+      disclosure: { value: "Manufacturer ingredient disclosure is generally limited", evidence: "gray" },
+    },
+  },
+  {
+    id: "pads-organic",
+    name: "Organic Cotton Pad",
+    category: "pads",
+    summary: "A pad marketed as made from organic cotton with reduced synthetic content.",
+    fields: {
+      materials: { value: "Organic cotton top sheet and core, bio-based or plastic backing", evidence: "blue" },
+      fragrance: { value: "Typically fragrance-free", evidence: "blue" },
+      absorbent: { value: "Cotton and/or wood pulp; some add bio-based superabsorbents", evidence: "blue" },
+      plastic: { value: "Lower plastic content than conventional pads, though backing may still contain plastic", evidence: "blue" },
+      pfas: { value: "Testing is limited; some brands publish third-party results", evidence: "yellow" },
+      microplastics: { value: "Likely lower, but product-specific data is limited", evidence: "gray" },
+      disclosure: { value: "Some brands disclose more; certification varies", evidence: "yellow" },
+    },
+  },
+  {
+    id: "tampons-standard",
+    name: "Standard Tampon",
+    category: "tampons",
+    summary: "A compact internal absorbent product, with or without an applicator.",
+    fields: {
+      materials: { value: "Cotton and/or rayon absorbent, cotton string, plastic or cardboard applicator", evidence: "green" },
+      fragrance: { value: "Some are fragranced; fragrance-free options are common", evidence: "yellow" },
+      absorbent: { value: "Cotton and/or rayon fibers", evidence: "green" },
+      plastic: { value: "Applicators and wrappers contribute plastic waste", evidence: "green" },
+      pfas: { value: "Some studies report detectable fluorine in certain tampons; not all are tested", evidence: "yellow" },
+      microplastics: { value: "Limited direct research; possible fiber shedding", evidence: "gray" },
+      disclosure: { value: "Ingredient lists are often incomplete; regulatory pressure is increasing", evidence: "gray" },
+    },
+  },
+  {
+    id: "tampons-organic",
+    name: "Organic Cotton Tampon",
+    category: "tampons",
+    summary: "A tampon made primarily from certified organic cotton.",
+    fields: {
+      materials: { value: "Organic cotton absorbent and string, cardboard or no applicator", evidence: "blue" },
+      fragrance: { value: "Typically fragrance-free", evidence: "blue" },
+      absorbent: { value: "Organic cotton", evidence: "blue" },
+      plastic: { value: "Reduced plastic where applicators are cardboard or absent", evidence: "blue" },
+      pfas: { value: "Some third-party testing available; not universal", evidence: "yellow" },
+      microplastics: { value: "Limited data", evidence: "gray" },
+      disclosure: { value: "Greater transparency from some brands", evidence: "yellow" },
+    },
+  },
+  {
+    id: "cup-silicone",
+    name: "Medical-Grade Silicone Cup",
+    category: "menstrual-cups",
+    summary: "A reusable cup that collects rather than absorbs menstrual fluid.",
+    fields: {
+      materials: { value: "Medical-grade silicone or thermoplastic elastomer", evidence: "green" },
+      fragrance: { value: "Not fragranced", evidence: "green" },
+      absorbent: { value: "Not applicable — collects fluid", evidence: "green" },
+      plastic: { value: "Low single-use plastic; reusable for years", evidence: "green" },
+      pfas: { value: "Not expected to contain PFAS; limited independent testing", evidence: "blue" },
+      microplastics: { value: "Not a significant concern; durable material", evidence: "blue" },
+      disclosure: { value: "Material grade is usually stated; full testing varies", evidence: "yellow" },
+    },
+  },
+  {
+    id: "underwear-absorbent",
+    name: "Absorbent Period Underwear",
+    category: "period-underwear",
+    summary: "Multi-layer washable underwear designed to absorb menstrual flow.",
+    fields: {
+      materials: { value: "Cotton, modal, or recycled blends with absorbent and moisture-barrier layers", evidence: "blue" },
+      fragrance: { value: "Typically fragrance-free", evidence: "blue" },
+      absorbent: { value: "Engineered multi-layer fabric; some include a waterproof barrier", evidence: "blue" },
+      plastic: { value: "Barrier layers often contain synthetic polymers", evidence: "blue" },
+      pfas: { value: "Some independent testing detected fluorine in certain brands; others tested clean", evidence: "yellow" },
+      microplastics: { value: "Shedding during washing is an active research area", evidence: "yellow" },
+      disclosure: { value: "Disclosure is improving but inconsistent across brands", evidence: "yellow" },
+    },
+  },
+  {
+    id: "disc-flexible",
+    name: "Menstrual Disc",
+    category: "other",
+    summary: "A flexible disc that sits at the base of the cervix to collect fluid.",
+    fields: {
+      materials: { value: "Medical-grade polymer or silicone; reusable and single-use variants exist", evidence: "blue" },
+      fragrance: { value: "Not fragranced", evidence: "green" },
+      absorbent: { value: "Not applicable — collects fluid", evidence: "green" },
+      plastic: { value: "Single-use versions contribute plastic waste; reusable versions are lower impact", evidence: "blue" },
+      pfas: { value: "Not expected to contain PFAS; limited testing", evidence: "gray" },
+      microplastics: { value: "Limited data", evidence: "gray" },
+      disclosure: { value: "Material stated; full testing varies", evidence: "yellow" },
+    },
+  },
+];
+
+export const productFieldLabels = {
+  materials: "Materials",
+  fragrance: "Fragrance",
+  absorbent: "Absorbent materials",
+  plastic: "Plastic components",
+  pfas: "PFAS research",
+  microplastics: "Microplastics research",
+  disclosure: "Manufacturer disclosure",
+};
