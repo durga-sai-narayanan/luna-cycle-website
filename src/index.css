@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 18% 5%;
+    --foreground: 250 30% 96%;
+    --card: 255 16% 8%;
+    --card-foreground: 250 30% 96%;
+    --popover: 255 16% 8%;
+    --popover-foreground: 250 30% 96%;
+    --primary: 263 70% 76%;
+    --primary-foreground: 263 45% 12%;
+    --secondary: 255 15% 14%;
+    --secondary-foreground: 250 30% 96%;
+    --muted: 255 14% 12%;
+    --muted-foreground: 255 12% 64%;
+    --accent: 263 35% 20%;
+    --accent-foreground: 250 30% 96%;
+    --destructive: 4 78% 64%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 255 16% 17%;
+    --input: 255 15% 18%;
+    --ring: 263 70% 76%;
+    --chart-1: 263 70% 74%;
+    --chart-2: 205 75% 66%;
+    --chart-3: 150 50% 62%;
+    --chart-4: 43 85% 66%;
+    --chart-5: 4 78% 70%;
+    --radius: 0.85rem;
+    --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .dark {
+    --background: 255 18% 5%;
+    --foreground: 250 30% 96%;
+    --card: 255 16% 8%;
+    --card-foreground: 250 30% 96%;
+    --popover: 255 16% 8%;
+    --popover-foreground: 250 30% 96%;
+    --primary: 263 70% 76%;
+    --primary-foreground: 263 45% 12%;
+    --secondary: 255 15% 14%;
+    --secondary-foreground: 250 30% 96%;
+    --muted: 255 14% 12%;
+    --muted-foreground: 255 12% 64%;
+    --accent: 263 35% 20%;
+    --accent-foreground: 250 30% 96%;
+    --destructive: 4 78% 64%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 255 16% 17%;
+    --input: 255 15% 18%;
+    --ring: 263 70% 76%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up { animation: fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.35) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .text-balance { text-wrap: balance; }
+}
