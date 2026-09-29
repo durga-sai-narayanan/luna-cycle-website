@@ -1,0 +1,58 @@
+{
+  "format": "Each test case below is implemented as a Playwright spec. The 'actual' and 'status' fields are populated at runtime; this catalog documents the designed matrix and expected behavior. Severity is assigned only when a failure is observed, with a written justification.",
+  "cases": [
+    { "id": "TC-NAV-001", "category": "NAV", "title": "Every public route loads without 404", "expected": "All static + dynamic routes return 200 and render content" },
+    { "id": "TC-NAV-002", "category": "NAV", "title": "Navbar links navigate to correct route", "expected": "Each nav link updates the URL and renders the target page heading" },
+    { "id": "TC-NAV-003", "category": "NAV", "title": "Back/forward browser navigation preserves state", "expected": "History navigation does not blank the page" },
+    { "id": "TC-NAV-004", "category": "NAV", "title": "Unknown route shows PageNotFound", "expected": "/no-such-route renders the 404 shell, not a blank page" },
+    { "id": "TC-NAV-005", "category": "NAV", "title": "Tracker route redirects unauthenticated users to /login", "expected": "Unauthenticated visit to /tracker lands on /login" },
+
+    { "id": "TC-SC-001", "category": "SC", "title": "Intro step renders Begin control", "expected": "Begin button is visible and enabled" },
+    { "id": "TC-SC-002", "category": "SC", "title": "Submit disabled when no symptom selected", "expected": "See overlap button is disabled until >=1 selection" },
+    { "id": "TC-SC-003", "category": "SC", "title": "Selecting one symptom enables submit", "expected": "See overlap becomes enabled" },
+    { "id": "TC-SC-004", "category": "SC", "title": "Results show ranked overlapping conditions", "expected": "At least one condition card with overlap bar appears" },
+    { "id": "TC-SC-005", "category": "SC", "title": "Percentages are valid numbers in [0,100]", "expected": "Every overlap % parses as 0..100" },
+    { "id": "TC-SC-006", "category": "SC", "title": "No duplicate conditions in results", "expected": "Each condition slug appears at most once" },
+    { "id": "TC-SC-007", "category": "SC", "title": "Disclaimer visible on results step", "expected": "'not a diagnosis' messaging present" },
+    { "id": "TC-SC-008", "category": "SC", "title": "Clear all resets selections", "expected": "Selection count returns to 0 and submit disables" },
+    { "id": "TC-SC-009", "category": "SC", "title": "Start over resets to intro", "expected": "Step returns to 0 and selections cleared" },
+    { "id": "TC-SC-010", "category": "SC", "title": "All symptoms selected yields results", "expected": "Multiple condition cards render without error" },
+    { "id": "TC-SC-011", "category": "SC", "title": "Results update when selections change", "expected": "Adjusting selections re-ranks results" },
+    { "id": "TC-SC-012", "category": "SC", "title": "Repeated submit clicks do not duplicate results", "expected": "Result list length stable across rapid clicks" },
+    { "id": "TC-SC-013", "category": "SC", "title": "Reload mid-workflow resets to intro", "expected": "After reload, step is 0 and no stale results" },
+
+    { "id": "TC-PT-001", "category": "PT", "title": "Unauthenticated tracker is gated", "expected": "Redirects to /login (see TC-NAV-005)" },
+    { "id": "TC-PT-002", "category": "PT", "title": "Log-a-day modal opens and closes", "expected": "Modal appears, Cancel closes it", "blocked": "Requires authenticated session" },
+    { "id": "TC-PT-003", "category": "PT", "title": "Create entry persists in localStorage", "expected": "Entry appears in timeline after save", "blocked": "Requires authenticated session" },
+    { "id": "TC-PT-004", "category": "PT", "title": "Delete entry removes from timeline", "expected": "Entry disappears after delete", "blocked": "Requires authenticated session" },
+    { "id": "TC-PT-005", "category": "PT", "title": "Calendar navigation across months", "expected": "Month label updates, no errors" },
+    { "id": "TC-PT-006", "category": "PT", "title": "Boundary entry all-zero saves", "expected": "Entry saved with all levels 0", "blocked": "Requires authenticated session" },
+    { "id": "TC-PT-007", "category": "PT", "title": "Future date entry handled", "expected": "No crash; entry stored or rejected gracefully", "blocked": "Requires authenticated session" },
+
+    { "id": "TC-CE-001", "category": "CE", "title": "Every condition page renders all sections", "expected": "All expected section headings present" },
+    { "id": "TC-CE-002", "category": "CE", "title": "Related condition links navigate", "expected": "Clicking a related card navigates to that condition" },
+    { "id": "TC-CE-003", "category": "CE", "title": "Back to all conditions link works", "expected": "Returns to /conditions" },
+    { "id": "TC-CE-004", "category": "CE", "title": "Search valid term filters list", "expected": "Matching conditions remain, others hidden" },
+    { "id": "TC-CE-005", "category": "CE", "title": "Search invalid term shows empty state", "expected": "No condition cards shown" },
+    { "id": "TC-CE-006", "category": "CE", "title": "Search case-insensitive", "expected": "ENDOMETRIOSIS matches endometriosis" },
+    { "id": "TC-CE-007", "category": "CE", "title": "Special characters do not crash search", "expected": "No console error, no crash" },
+
+    { "id": "TC-PS-001", "category": "PS", "title": "Product category tabs switch content", "expected": "Active tab shows its products" },
+    { "id": "TC-PS-002", "category": "PS", "title": "Evidence legend renders four statuses", "expected": "Established, Supported, Developing, Insufficient all visible" },
+    { "id": "TC-PS-003", "category": "PS", "title": "Product search filters cards", "expected": "Query narrows visible cards" },
+
+    { "id": "TC-A11Y-001", "category": "A11Y", "title": "Home page has no critical axe violations", "expected": "0 critical violations" },
+    { "id": "TC-A11Y-002", "category": "A11Y", "title": "Symptom Checker keyboard reachable", "expected": "Tab reaches Begin and symptom cards" },
+    { "id": "TC-A11Y-003", "category": "A11Y", "title": "Condition pages have logical heading order", "expected": "No skipped heading levels" },
+
+    { "id": "TC-PERF-001", "category": "PERF", "title": "Home LCP under 2.5s", "expected": "Largest contentful paint < 2500ms" },
+    { "id": "TC-PERF-002", "category": "PERF", "title": "Symptom Checker interaction under 500ms", "expected": "Click-to-result < 500ms" },
+    { "id": "TC-PERF-003", "category": "PERF", "title": "Condition page load under 1.5s", "expected": "Navigation < 1500ms" },
+
+    { "id": "TC-STAB-001", "category": "STAB", "title": "10 repeated symptom checker cycles stable", "expected": "All 10 cycles pass with no state corruption" },
+    { "id": "TC-STAB-002", "category": "STAB", "title": "20 repeated navigations stable", "expected": "No blank pages or console errors" },
+
+    { "id": "TC-ERR-001", "category": "ERR", "title": "Blocked API shows graceful state", "expected": "No silent blank page on request failure" },
+    { "id": "TC-ERR-002", "category": "ERR", "title": "No sensitive data in URL", "expected": "URLs contain no health/symptom data" }
+  ]
+}
