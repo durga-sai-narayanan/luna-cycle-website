@@ -1,0 +1,24 @@
+{
+  "validEntry": {
+    "date": "2026-09-15",
+    "bleeding": 3,
+    "pain": 4,
+    "painLocation": "Lower abdomen",
+    "fatigue": 2,
+    "headaches": 1,
+    "nausea": 0,
+    "digestive": 1,
+    "back": 2,
+    "impact": "Missed a morning class"
+  },
+  "boundaryEntries": [
+    { "name": "all-zero", "bleeding": 0, "pain": 0, "fatigue": 0, "headaches": 0, "nausea": 0, "digestive": 0, "back": 0 },
+    { "name": "all-max", "bleeding": 4, "pain": 4, "fatigue": 4, "headaches": 4, "nausea": 4, "digestive": 4, "back": 4 },
+    { "name": "same-day", "date": "2026-09-15", "impact": "" }
+  ],
+  "edgeDates": [
+    { "name": "future", "date": "2099-12-31" },
+    { "name": "past", "date": "1900-01-01" },
+    { "name": "empty", "date": "" }
+  ]
+}
