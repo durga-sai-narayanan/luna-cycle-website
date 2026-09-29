@@ -1,0 +1,13 @@
+{
+  "slugs": ["endometriosis", "adenomyosis", "uterine-fibroids", "pcos", "primary-dysmenorrhea"],
+  "expectedSections": [
+    "What is it?",
+    "Common symptoms",
+    "How symptoms may affect daily life",
+    "How it may overlap with other conditions",
+    "How healthcare professionals may investigate it",
+    "Common misconceptions",
+    "What researchers are still learning",
+    "Questions you could ask a healthcare professional"
+  ]
+}
