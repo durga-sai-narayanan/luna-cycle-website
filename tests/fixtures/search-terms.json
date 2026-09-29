@@ -1,0 +1,9 @@
+{
+  "valid": ["endometriosis", "PCOS", "fibroids", "pain"],
+  "partial": ["endo", "fibr", "pc"],
+  "capitalized": ["ENDOMETRIOSIS", "Pcos"],
+  "invalid": ["zzzznomatch", "qwerty123"],
+  "special": ["!@#$%", "endo metriosis", "🩸"],
+  "long": ["endometriosisadenomyosisfibroidspcosdysmenorrheaverylongsearchterm"],
+  "empty": ""
+}
